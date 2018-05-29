@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/templates/layout.xhtml"> 
+      
+      <ui:define name="content">
+          
+          
+      <h1 class="jr-page-title"> Controle do Parck Computacional</h1>
+      
+
+        
+        <h:form id="rel">
+            <p:dataTable id="table" 
+                         value="#{parckController.parckPorOm}"  
+                         class="table" 
+                         style="font-size: 13px;"
+                         reflow="true"
+                         paginator="true" 
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15"
+                         paginatorPosition="bottom"
+                         var="parck">                
+                               
+                <p:column headerText="Responsável"
+                          style="text-align: center;" class="col-1">
+                <ul style="text-align:left" class="list-group">
+                    <li class="list-group-item"> Nome de Guerra : <h:outputText value="#{parck.nomeDeGuerra}"/> </li>
+                    <li class="list-group-item">NIP : <h:outputText value="#{parck.nip}"/> </li>
+                    <li class="list-group-item">SETOR : <h:outputText value="#{parck.setorResponsavel}"/> </li>
+                    
+                </ul>
+                </p:column>
+                
+                <p:column headerText="Rede"  
+                          style="text-align: center;" class="col-1"> 
+                    <ul style="text-align:left" class="list-group">
+                        <li class="list-group-item"> TIPO : <h:outputText value="#{parck.tipo}"/> </li>
+                        <li class="list-group-item"> SISTEMA OPERACIONAL : <h:outputText value="#{parck.sistemaOperacional}"/> </li>
+                        <li class="list-group-item">IP : <h:outputText value="#{parck.ip}"/> </li>
+                        <li class="list-group-item">MAC ADDRESS :  <h:outputText value="#{parck.macAddress}"/> </li>
+                    </ul>
+                </p:column>
+                <p:column headerText="Identificação na OM"  
+                          style="text-align: center;" class="col-1"> 
+                    <ul style="text-align:left" class="list-group">
+                        <li class="list-group-item">NOME : <h:outputText value="#{parck.nome}"/> </li>
+                        <li class="list-group-item"> ETIQUETA : <h:outputText value="#{parck.numeroEtiqueta}"/> </li>
+                        <li class="list-group-item">LACRE : <h:outputText value="#{parck.numeroLacre}"/> </li>
+                  <li class="list-group-item"> DATA AQUISIÇÃO : <h:outputText value="#{parck.dataAquisicao}">
+                        <f:convertDateTime pattern="dd-MM-yyyy"/> </h:outputText> </li>
+                    </ul>
+                </p:column>
+                 <p:column headerText="Configuração"  
+                          style="text-align: center;" class="col-1">   
+                     <ul style="text-align:left" class="list-group">
+                         <li class="list-group-item">MARCA : <h:outputText value="#{parck.marca}"/> </li>
+                         <li class="list-group-item">PROCESSADOR :  <h:outputText value="#{parck.processador}"/> </li>
+                         <li class="list-group-item">MEMÓRIA : <h:outputText value="#{parck.memoria}"/> </li>
+                         <li class="list-group-item">HD : <h:outputText value="#{parck.hd}"/> </li>
+                       
+                     </ul>
+                </p:column>
+                
+                               
+               
+                
+
+
+            </p:dataTable>
+        </h:form>
+       
+
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/templates/layout.xhtml"> 
+      
+      <ui:define name="content">
+          
+          
+      <h1 class="jr-page-title"> Cadastro Agenda memória</h1>
+            
+            <h1 style="color: #0062cc; text-align: center">Cadastro de Tarefas e fainas</h1>
+            <div class="container">
+
+	        
+                <h:form id="rel" enctype="multipart/form-data">
+                <p:messages/>
+                <p:panelGrid columns="1"
+                             styleClass="panelgrid-noborder"
+			     layout="grid"
+			     columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4">
+                    <h:inputHidden value="#{agendaController.agenda.id}"/>
+                  
+                    
+                    <h:outputLabel value = "Executor : " />
+                    <p:inputText value="#{agendaController.agenda.executor}" 
+                                 styleClass="form-control"
+                                 required="true" requiredMessage="Nome do Executor é Obrigatório!"/>
+                    
+                    <h:outputLabel value = "Tarefa : " />
+                    <p:inputTextarea value="#{agendaController.agenda.faxina}" 
+                                     maxlength="2000"
+                                     rows="5"
+                                     cols="70"
+                                     counter="display"
+                                     counterTemplate="{0} caracteres restantes"
+                                     styleClass="form-control" />
+                    <h:outputText style="color: red" id="display" />
+                  
+                    
+                    <h:outputLabel value = "Data Solicitação  :  " />
+                    <p:calendar value="#{agendaController.agenda.dataSolicitacao}" 
+                                showOn="inline"
+                                pattern="dd-MM-yyyy"
+                                mask="true"
+                                />   
+                                                            
+                    <h:outputLabel value = "Data da  Execução  :  " />
+                     <p:calendar value="#{agendaController.agenda.dataExecFaxina}" 
+                                showOn="inline"
+                                pattern="dd-MM-yyyy"
+                                mask="true"
+                                />
+                    
+                    <h:outputLabel value = "Solução : " />
+                    <p:inputTextarea value="#{agendaController.agenda.solucaoImpl}" 
+                                     maxlength="2000"
+                                     rows="5"
+                                     cols="70"
+                                     counter="display2"
+                                     counterTemplate="{0} caracteres restantes"
+                                     styleClass="form-control" />
+                    <h:outputText style="color: red" id="display2" />
+                    
+                    <h:outputLabel value = "Observação : " />
+                    <p:inputTextarea value="#{agendaController.agenda.observacaoes}" 
+                                      maxlength="2000"
+                                     rows="5"
+                                     cols="70"
+                                     counter="display1"
+                                     counterTemplate="{0} caracteres restantes"
+                                     styleClass="form-control" />
+                    <h:outputText style="color: red" id="display1" />
+                    
+                   
+                    
+                </p:panelGrid>
+                <p:commandButton 
+                    action="#{agendaController.salvar()}" 
+                    styleClass="btn btn-primary"
+                    ajax="false"
+                    value="Enviar"/>
+            </h:form>
+            
+            
+            </div>
+	</ui:define>
+</ui:composition>

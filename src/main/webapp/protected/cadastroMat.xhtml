@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/templates/layout.xhtml"> 
+      
+      <ui:define name="content">
+          
+          
+      <h1 class="jr-page-title"> Cadastro Material</h1>
+            
+            <h1 style="color: #0062cc; text-align: center">Cadastro de material</h1>
+            <div class="container">
+
+	        
+            <h:form id="rel">
+                <p:messages/>
+                <p:panelGrid columns="2" styleClass="panelgrid-noborder"
+			 layout="grid"
+			 columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4">
+                    <h:inputHidden value="#{materialController.material.material_id}"/>
+                    <h:outputText/>
+                    
+                    <h:outputLabel value = "NP :" />
+                    <p:inputText value="#{materialController.material.numeroMatricial}" 
+                                 />
+                    
+                    <h:outputLabel value = "Descriçao" />
+                    <p:inputTextarea value="#{materialController.material.descricao}" 
+                                      
+                                     required="true"
+                                     requiredMessage="Descrição é Obrigatória!"/>
+                    
+                    <h:outputLabel value = "Vida útil" />
+                    <p:inputText value="#{materialController.material.vidaUtil}"  />
+                    
+                    <h:outputLabel value = "Entrada" />
+                    <p:calendar value="#{materialController.material.entradaOperacao}" 
+                                showOn="inline"
+                                pattern="dd-MM-yyyy"
+                                mask="true"
+                                />
+                    
+                    <h:outputLabel value = "Situação Atual" />
+                    <p:inputTextarea value="#{materialController.material.situacaoAtual}"  />
+                    
+                    <h:outputLabel value = "Valor :" />
+                    <p:inputText value="#{materialController.material.valor}"                                
+                                />
+                    
+                    <p:outputLabel value="Tipo :  " for="tipo" />
+                    <p:selectOneMenu value="#{materialController.material.tipo}" id="tipo">
+                            <f:selectItem itemValue="Permanente" itemLabel="Permanente" />
+                            <f:selectItem itemValue="Consumo" itemLabel="Consumo" />                          
+                    </p:selectOneMenu>
+                    
+                    
+                </p:panelGrid>
+                <h:commandButton 
+                    action="#{materialController.salvar()}" 
+                    styleClass="btn btn-primary"
+                    value="Enviar"/>
+            </h:form>
+            
+            
+            </div>
+	</ui:define>
+</ui:composition>

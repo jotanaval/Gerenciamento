@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/templates/layout.xhtml"> 
+      
+      <ui:define name="content">
+          
+          
+      
+
+
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h1 style="color: #bd2130; text-align: center">Cadastro de Militares</h1></div>
+            </div>
+            <h:form id="rel">
+                <p:messages/>
+                <p:tabView style="margin-top: 20px">
+                    <p:tab title="Dados básicos">
+                <p:panelGrid columns="2" 
+                             styleClass="panelgrid-noborder"
+			     layout="grid"
+			     columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4">
+
+                       
+                        <h:outputLabel value = "Nome : " />
+                        <p:inputText value="#{militarController.militar.nome}" 
+                                     required="true" requiredMessage="Nome é Obrigatório"/>
+                            
+
+                        <h:outputLabel value = "Nip : " />
+                        <p:inputMask value="#{militarController.militar.nip}"  mask="99.9999.99" />                  
+
+
+                        <h:outputLabel value = "Identidade : " />
+                        <p:inputMask value="#{militarController.militar.identidade}"  mask="999.999-9" />
+
+                        <h:outputLabel value = "Endereço : " />
+                        <p:inputText value="#{militarController.militar.endereco}"  />
+
+                        <h:outputLabel value = "Celular : " />
+                        <p:inputMask value="#{militarController.militar.telCel}" mask="(99)99999-9999" />
+
+                        <h:outputLabel value = "Telefone : " />
+                        <p:inputMask value="#{militarController.militar.telConvencional}"  mask="(99)99999-9999" />
+
+                        <h:outputLabel value = "Contado Familiar : " />
+                        <p:inputText value="#{militarController.militar.nomeFamiliar}" />
+
+                        <h:outputLabel value = "Tel contato : " />
+                        <p:inputMask value="#{militarController.militar.telContato}"  mask="(99)99999-9999" />
+                        </p:panelGrid>
+                    </p:tab>
+
+                    <p:tab title="Inspeção de saúde" >
+                        <p:panelGrid columns="2" styleClass="panelgrid-noborder"
+						layout="grid"
+						columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4">
+                       
+
+                        <h:outputLabel value = "Data da última IS : " />
+                        <p:calendar value="#{militarController.militar.dataUltima}" 
+                                    showOn="inline"
+                                    pattern="dd-MM-yyyy"
+                                    mask="true"
+                                    />
+
+                        <h:outputLabel value = "Válida até : " />
+                        <p:calendar value="#{militarController.militar.dataValidade}" 
+                                    showOn="inline"
+                                    pattern="dd-MM-yyyy"
+                                    mask="true"
+                                    />
+
+                   </p:panelGrid>
+                    </p:tab>
+                    <p:tab title="Tiro de carreira">
+                    
+                    <p:panelGrid columns="2" styleClass="panelgrid-noborder"
+						layout="grid"
+                                                columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4">
+                        
+
+                        <h:outputLabel value = "Classe : " />
+                        <p:inputText value="#{militarController.militar.classeTiro}"  />
+
+                        <h:outputLabel value = "Pontuação : " />
+                        <p:inputText value="#{militarController.militar.pontuacao}"  />
+
+                        <h:outputLabel value = "Válido até : " />
+                        <p:calendar value="#{militarController.militar.dataVencimentoTiro}" 
+                                    showOn="inline"
+                                    pattern="dd-MM-yyyy"
+                                    mask="true"
+                                    />                  
+                    </p:panelGrid>
+                        </p:tab>
+                        
+                    <p:tab title="Capacitação Profissional">
+                        
+                        <p:panelGrid columns="2" styleClass="panelgrid-noborder"
+						layout="grid"
+                                                columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4">
+                       
+                       
+
+                        <h:outputLabel value = "Cursos : " />
+                        <p:inputTextarea value="#{militarController.militar.cursos}"  />
+                   
+                    
+                    <h:inputHidden value="#{militarController.militar.id}"/>
+                    <h:outputText/>
+                </p:panelGrid>
+                    </p:tab>
+                    </p:tabView>
+                <h:commandButton 
+                    action="#{militarController.salvar()}" 
+                    styleClass="btn btn-primary"
+                    value="Enviar"/>
+            </h:form>
+
+
+        </div>
+    </ui:define>
+</ui:composition>
