@@ -77,30 +77,5 @@
     </filter-mapping>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    <!-- configuração do upload de arquivos -->
-    <context-param>
-        <param-name>primefaces.UPLOADER</param-name>
-        <param-value>native</param-value>
-    </context-param>
-    <filter>
-        <filter-name>FileUploadFilter</filter-name>
-        <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
-        <init-param>
-            <param-name>thresholdSize</param-name>
-            <param-value>10240</param-value>
-        </init-param>
-        <init-param>
-            <param-name>uploadDirectory</param-name>
-            <param-value>/tmp/desenvolvedor/uploads</param-value>
-        </init-param>
-    </filter>
- 
-    <filter-mapping>
-        <filter-name>FileUploadFilter</filter-name>
-        <servlet-name>FacesServlet</servlet-name>
-    </filter-mapping>
-        
-        
-            
+    </listener>                    
 </web-app>

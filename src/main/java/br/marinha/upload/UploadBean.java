@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import org.primefaces.model.UploadedFile;
 
@@ -18,6 +19,7 @@ import org.primefaces.model.UploadedFile;
  *
  * @author Desenvolvedor
  */
+@ManagedBean
 public class UploadBean {
 
     private UploadedFile uploadedFile;

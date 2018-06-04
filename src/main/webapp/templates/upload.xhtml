@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/layout.xhtml"> 
+
+    <ui:define name="content">
+
+        <h2>Upload de arquivos</h2>
+
+        <h:form enctype="multipart/form-data" id="frm1">
+            <p:messages closable="true"/>
+            <p:fileUpload value="#{uploadBean.uploadedFile}" mode="simple"/>
+            <p:commandButton value="Enviar" ajax="false"
+                             actionListener="#{uploadBean.upload}" />
+        </h:form>
+        <h:form>
+            <p:fileUpload fileUploadListener="#{uploadBean.upload}" 
+                          id="frm2"
+                          label="Escolher"
+                          uploadLabel="Enviar"
+                          cancelLabel="Cancelar"/>
+        </h:form>
+
+
+    </ui:define>
+</ui:composition>
