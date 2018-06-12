@@ -98,12 +98,12 @@ para o específico idioma que rege as permissões e limitações sob a Licença.
             <artifactId>spring-security-web</artifactId>
             <version>3.2.0.RELEASE</version>
         </dependency>
-          <dependency>
+        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>3.2.0.RELEASE</version>
         </dependency>
-         <dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>3.2.6.RELEASE</version>
@@ -181,6 +181,14 @@ para o específico idioma que rege as permissões e limitações sob a Licença.
                 </exclusion>
             </exclusions>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- Importar a API do JSF, usamos o escopo fornecido à medida que a API 
         está incluída no JBoss WildFly -->
@@ -214,6 +222,7 @@ para o específico idioma que rege as permissões e limitações sob a Licença.
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+       
 
         <!-- Opcional, mas altamente recomendado -->
         <!-- Arquillian permite que você teste o código da empresa, como EJBs e 
